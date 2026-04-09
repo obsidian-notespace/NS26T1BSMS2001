@@ -1,0 +1,67 @@
+name: Generate Assignment Dashboard
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'sol/**'
+      - 'src/**'
+    # Ignore changes to index.js to prevent infinite loops
+    paths-ignore:
+      - 'index.js'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      # 1. Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      # 2. Setup Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # 3. Run the script to generate index.js
+      - name: Generate Dashboard Data
+        run: node scr/script.js
+        env:
+          NODE_ENV: production
+
+      # 4. Verify the output file
+      - name: Verify output
+        run: |
+          if [ -f "index.js" ]; then
+            echo "File: index.js generated successfully"
+            echo "File size: $(wc -c < index.js) bytes"
+            echo "Line count: $(wc -l < index.js) lines"
+          else
+            echo "ERROR: index.js not found!"
+            exit 1
+          fi
+
+      # 5. Commit and push if there are changes
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          # Stage the generated file
+          git add index.js
+
+          # Only commit if there are changes
+          if ! git diff --staged --quiet; then
+            echo "Changes detected, committing..."
+            git commit -m "chore: auto-generate dashboard data [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
