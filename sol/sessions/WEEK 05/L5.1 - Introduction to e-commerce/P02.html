@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>DBMS — Week 05 — Good Design Goals — MCQ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})">
+        </script>
+    <link rel="stylesheet" href="../../../../scr/ui/ui.css" />
+    <script src="../../../../scr/ui/ui.js"></script>
+</head>
+
+<body>
+    <div class="assignment-container">
+        <div class="gcb-assessment-title">WEEK 05 - L5.1: Introduction to e-commerce</div>
+        <div class="assessment-top-info">
+            <strong>Week:</strong> 05 |
+            <strong>Lecture:</strong> L5.1 |
+            <strong>Topics:</strong> E-commerce industry overview, Indian e-commerce landscape, platform vs niche
+            companies, data in e-commerce, customer profiling, distribution challenges<br />
+            <strong>Prerequisites:</strong> Basic understanding of retail and digital marketplaces, fundamental
+            knowledge of business operations.<br />
+            <strong>Learning Outcomes:</strong> After this lecture, students will be able to explain the structure of
+            e-commerce industry in India, differentiate platform and niche e-commerce models, describe the role of data
+            in customer personalization, and identify key supply chain challenges unique to e-commerce.
+        </div>
+
+        <!-- CONCEPT 1: E-commerce Industry in India -->
+        <div class="concept-card">
+            <h2>1. E-commerce Industry in India – Growth and Significance</h2>
+            <h3>Definition</h3>
+            <p>E‑commerce (electronic commerce) refers to the buying and selling of goods or services using the
+                internet, and the transfer of money and data to execute these transactions. In India, e‑commerce has
+                emerged as a critical sector, especially after the COVID‑19 pandemic, serving as a backbone for
+                essential deliveries and economic resilience.</p>
+            <h3>Explanation</h3>
+            <p>The Indian e‑commerce industry has witnessed explosive growth over the last decade. While overall retail
+                in India is still dominated by unorganised (kirana stores) and organised brick‑and‑mortar retail,
+                e‑commerce currently holds a single‑digit market share (roughly 7‑10%). However, the growth rate is
+                remarkably high – often 60‑80% year‑on‑year – indicating that the market is far from saturated. Tier‑2
+                and Tier‑3 cities represent a vast untapped potential, and companies are rapidly expanding their
+                logistics and digital reach into these areas.</p>
+            <p>During the COVID‑19 lockdowns, e‑commerce platforms became essential for delivering groceries, medicines,
+                and other essentials. This period accelerated digital adoption among both consumers and small
+                businesses. As a result, the industry is now seen as a backbone of the Indian economy, not merely a
+                convenience.</p>
+            <p>Compared to global benchmarks, India’s e‑commerce penetration is still low relative to China (30‑40% of
+                retail) but is following a similar trajectory. China serves as a template because both countries have
+                large, price‑sensitive, mass‑market populations. The US and Europe are different: they are more niche,
+                high‑value markets. Therefore, Indian e‑commerce strategies borrow heavily from Chinese models – for
+                example, flash sales, platform‑led marketplaces, and logistics innovation.</p>
+            <h3>Intuition / Mental Model</h3>
+            <p>Think of e‑commerce as a high‑speed railway being built across India. Currently, only a few major cities
+                have stations (metros). The tracks are being laid to reach thousands of smaller towns. Once completed,
+                the entire country will be connected, and the volume of passengers (transactions) will explode. The
+                growth potential is enormous, but the infrastructure (logistics, payment systems, data analytics) must
+                keep pace.</p>
+            <h3>Key Definitions</h3>
+            <ul>
+                <li><strong>Market share (e‑commerce)</strong>: The percentage of total retail sales that happen through
+                    online channels.</li>
+                <li><strong>Unorganised retail</strong>: Small, independent, family‑owned shops (kirana stores) that are
+                    not part of a larger chain.</li>
+                <li><strong>Organised retail</strong>: Large‑format stores, chains, and franchised outlets (e.g., Big
+                    Bazaar, Reliance Retail).</li>
+                <li><strong>Tier‑2 / Tier‑3 cities</strong>: Smaller urban centres beyond the top metropolitan areas,
+                    often with emerging digital infrastructure.</li>
+                <li><strong>Essential deliveries</strong>: Products considered critical for daily life, especially
+                    during emergencies (groceries, medicines, hygiene products).</li>
+            </ul>
+            <h3>Formulas (if any)</h3>
+            <p>No specific formula for this concept. However, growth rates are computed as:</p>
+            <p>\[ \text{Growth Rate} = \frac{\text{Current Year Sales} - \text{Previous Year Sales}}{\text{Previous Year
+                Sales}} \times 100\% \]</p>
+            <p><strong>Worked Example:</strong> If e‑commerce sales were ₹50,000 crores in 2020 and ₹85,000 crores in
+                2021, the growth rate = (85,000 – 50,000)/50,000 × 100% = 70%.</p>
+            <h3>Common Mistakes</h3>
+            <ul>
+                <li><strong>Misconception 1: “E‑commerce already dominates Indian retail.”</strong><br />
+                    (Correction: E‑commerce still has a single‑digit share. The majority of retail remains offline.)
+                </li>
+                <li><strong>Misconception 2: “Growth will slow down because metros are saturated.”</strong><br />
+                    (Correction: Tier‑2/3 cities offer enormous untapped potential; growth is expected to continue at
+                    high rates for many years.)</li>
+            </ul>
+            <h3>Edge Cases</h3>
+            <ul>
+                <li>During pandemic lockdowns, e‑commerce faced operational constraints (staff shortages, curfews) yet
+                    demand surged. This created a unique scenario where supply could not keep up with demand.</li>
+                <li>In rural areas with poor internet connectivity, e‑commerce penetration remains extremely low, but
+                    improving digital infrastructure (BharatNet) is gradually bridging the gap.</li>
+            </ul>
+            <h3>Real‑world Application</h3>
+            <p>Companies like Flipkart, Amazon India, and JioMart use this understanding to prioritise investments: they
+                build fulfilment centres in emerging cities, offer vernacular interfaces, and introduce cash‑on‑delivery
+                to cater to trust‑sensitive customers.</p>
+            <h3>Key Takeaways</h3>
+            <p>
+                * Indian e‑commerce is still in a high‑growth phase with single‑digit market share.<br />
+                * COVID‑19 accelerated digital adoption and made e‑commerce essential.<br />
+                * China is the primary template for Indian e‑commerce strategy.<br />
+                * Tier‑2/3 cities are the next frontier for expansion.<br />
+                * Even at 60‑80% growth, the industry has “not even scratched the surface.”
+            </p>
+        </div>
+
+        <!-- CONCEPT 2: Platform Companies vs Niche E‑commerce -->
+        <div class="concept-card">
+            <h2>2. Platform Companies vs Niche E‑commerce – Business Models</h2>
+            <h3>Definition</h3>
+            <p>A <strong>platform e‑commerce company</strong> offers a wide range of product categories (e.g., mobiles,
+                FMCG, lifestyle, electronics, groceries) on a single marketplace. A <strong>niche e‑commerce
+                    company</strong> specialises in one specific category (e.g., only cosmetics, only high‑end
+                clothing).</p>
+            <h3>Explanation</h3>
+            <p>Platform companies, such as Flipkart or Amazon, aim to be the “one‑stop shop” for all consumer needs.
+                They carry everything from safety pins to refrigerators. This diversity creates significant supply chain
+                complexity because different products have different characteristics: size, weight, shelf life, handling
+                requirements, customer delivery expectations, and minimum order quantities (MOQs) from suppliers.</p>
+            <p>In contrast, niche companies (e.g., Myntra originally focused on fashion, Nykaa on cosmetics) have a
+                relatively homogeneous product portfolio. Their supply chains are simpler because they deal with similar
+                handling and storage conditions. They can optimise their processes for a single category, which often
+                leads to higher efficiency within that niche.</p>
+            <p>For a platform company, the challenge is to simultaneously manage fast‑moving, low‑value items (e.g.,
+                soaps) and slow‑moving, high‑value items (e.g., iPhones). Each requires different inventory policies,
+                storage locations, and delivery speed promises. The lecture emphasises that mobiles demand speed
+                (customers will not wait), while lifestyle products (clothes) are more indulgent – customers are willing
+                to wait longer. This heterogeneity forces platform companies to adopt sophisticated data‑driven
+                inventory placement strategies.</p>
+            <h3>Intuition / Mental Model</h3>
+            <p>Imagine a department store (platform) versus a specialised boutique (niche). The department store has
+                thousands of products – clothes, electronics, food, furniture. The boutique sells only shoes. Managing
+                inventory in the department store is vastly more complex because each product type has different storage
+                (cold chain for food, secure cases for mobiles) and different customer expectations (fast delivery for
+                electronics, relaxed for furniture). The boutique, by contrast, can perfect its shoe storage, sizing,
+                and returns process.</p>
+            <h3>Key Definitions</h3>
+            <ul>
+                <li><strong>Platform company</strong>: An e‑commerce business that sells products across multiple
+                    unrelated categories, often operating as a marketplace or inventory‑led model.</li>
+                <li><strong>Niche company</strong>: An e‑commerce business focused on a single product category or a
+                    narrow set of related categories.</li>
+                <li><strong>Homogeneous product portfolio</strong>: Products with similar physical, logistical, and
+                    demand characteristics.</li>
+                <li><strong>Minimum Order Quantity (MOQ)</strong>: The smallest quantity a supplier is willing to sell.
+                    High MOQs force platform companies to centralise inventory and then redistribute.</li>
+            </ul>
+            <h3>Formulas (if any)</h3>
+            <p>Not directly applicable. But the concept influences cost models: total logistics cost = sum over
+                categories of (handling cost per unit × volume). Heterogeneity increases coordination cost.</p>
+            <h3>Common Mistakes</h3>
+            <ul>
+                <li><strong>Misconception 1: “Platform companies are always better because they offer more
+                        choice.”</strong><br />
+                    (Correction: More choice comes with higher operational complexity and cost. Niche players can
+                    outperform on customer experience within their category.)</li>
+                <li><strong>Misconception 2: “Niche companies cannot scale because they are limited to one
+                        category.”</strong><br />
+                    (Correction: Many successful niche companies scale by dominating their category and then expanding
+                    to adjacent categories carefully.)</li>
+            </ul>
+            <h3>Edge Cases</h3>
+            <ul>
+                <li>Some platform companies start as niche and then expand (e.g., Flipkart started with books). The
+                    transition from niche to platform is a major strategic inflection point.</li>
+                <li>Hybrid models exist where a platform runs separate fulfilment networks for different categories
+                    (e.g., dedicated grocery warehouses vs general merchandise).</li>
+            </ul>
+            <h3>Real‑world Application</h3>
+            <p>Flipkart is a platform company. Its sister company Myntra focuses on fashion (originally niche). Both
+                operate under the same parent but have different supply chain strategies. In the case study, Fab Mart is
+                a platform company with three representative categories: mobiles (speed‑critical), FMCG (high volume,
+                low value), and lifestyle (indulgent, slower).</p>
+            <h3>Key Takeaways</h3>
+            <p>
+                * Platform companies sell multiple, diverse categories; niche companies focus on one.<br />
+                * Heterogeneity of products increases supply chain complexity.<br />
+                * Different categories have different customer delivery expectations.<br />
+                * Platform companies must use data to balance inventory across categories.<br />
+                * Niche companies have simpler logistics but limited market scope.
+            </p>
+        </div>
+
+        <!-- CONCEPT 3: The Role of Data in E‑commerce – Customer Profiling and Personalisation -->
+        <div class="concept-card">
+            <h2>3. The Role of Data in E‑commerce – Customer Profiling and Personalisation</h2>
+            <h3>Definition</h3>
+            <p>Data in e‑commerce refers to the vast amount of information generated by customer interactions: browsing
+                history, search queries, cart additions, past purchases, returns, payment methods, device used,
+                location, and time of visit. This data is used to build detailed customer profiles and deliver
+                personalised experiences.</p>
+            <h3>Explanation</h3>
+            <p>Unlike traditional offline retail, where the store manager rarely knows individual customers by name or
+                preference, e‑commerce platforms capture every digital footprint. When a customer logs in, the system
+                can instantly retrieve their entire history. This enables a level of personalisation that was previously
+                impossible. For example, the homepage may show different products to different users based on their
+                predicted interests.</p>
+            <p>Through machine learning algorithms, e‑commerce platforms can infer not only what a customer is likely to
+                buy next but also demographic attributes such as gender, marital status, and whether they have children.
+                They can predict whether a customer prefers high‑end smartphones or value devices. This allows the
+                platform to tailor recommendations, search results, promotions, and even the order of displayed items.
+            </p>
+            <p>The lecture highlights that “customer A and customer B may not get the same website at any point of
+                time.” This dynamic customisation is a key competitive advantage of e‑commerce over offline retail. It
+                increases conversion rates, average order value, and customer loyalty.</p>
+            <p>However, collecting and processing such massive data poses challenges. Companies generate petabytes of
+                data daily. They must decide what to store in raw form, what to aggregate, and what to purge. Dashboards
+                summarising key metrics (sales, inventory, fulfilment rates) are created for managers, while raw data
+                may be archived after a certain period.</p>
+            <h3>Intuition / Mental Model</h3>
+            <p>Think of a personal shopper who has known you for years. They remember your size, favourite colours, past
+                purchases, and even the gifts you bought for others. When you walk into the store, they have already
+                picked out items you might like. E‑commerce data acts as that personal shopper, but at a scale of
+                millions of customers simultaneously.</p>
+            <h3>Key Definitions</h3>
+            <ul>
+                <li><strong>Customer profile</strong>: A collection of attributes and behavioural data associated with a
+                    specific user.</li>
+                <li><strong>Personalisation</strong>: Tailoring the user interface, product recommendations, and
+                    communications to an individual user’s preferences.</li>
+                <li><strong>Petabyte (PB)</strong>: A unit of digital information equal to 1,024 terabytes or
+                    approximately 1 million gigabytes. Large e‑commerce companies generate multiple petabytes of data
+                    per day.</li>
+                <li><strong>Dashboard</strong>: A visual display of key performance indicators (KPIs) that is updated
+                    regularly (daily/weekly) to provide at‑a‑glance business insights.</li>
+                <li><strong>Data purging / archiving</strong>: The practice of removing or compressing detailed raw data
+                    after a certain period to save storage costs, while keeping aggregated summaries.</li>
+            </ul>
+            <h3>Formulas (if any)</h3>
+            <p>No formulas. However, the scale is often expressed: 1 PB = 10<sup>15</sup> bytes.</p>
+            <h3>Common Mistakes</h3>
+            <ul>
+                <li><strong>Misconception 1: “More data always leads to better decisions.”</strong><br />
+                    (Correction: Without proper analysis and cleaning, large data can be noisy and misleading. The
+                    ability to extract a clear story is more important than raw volume.)</li>
+                <li><strong>Misconception 2: “Data from the last 15 days is sufficient to identify long‑term
+                        trends.”</strong><br />
+                    (Correction: 15 days is too short for seasonality or trend detection; it only gives a snapshot.
+                    Longer periods (months/years) are needed for robust trends.)</li>
+            </ul>
+            <h3>Edge Cases</h3>
+            <ul>
+                <li>Data privacy regulations (e.g., India’s upcoming Digital Personal Data Protection Act) restrict how
+                    much customer data can be collected and used. E‑commerce companies must balance personalisation with
+                    compliance.</li>
+                <li>When a customer uses guest checkout, the platform loses the ability to build a profile, but may
+                    still collect session‑based data.</li>
+            </ul>
+            <h3>Real‑world Application</h3>
+            <p>Flipkart uses customer data to power its recommendation engine (“Frequently Bought Together”),
+                personalised search ranking, and targeted email/SMS campaigns. During sale events like Big Billion Days,
+                real‑time data is used to adjust inventory allocation across fulfilment centres dynamically.</p>
+            <h3>Key Takeaways</h3>
+            <p>
+                * E‑commerce generates massive amounts of behavioural data, far exceeding offline retail.<br />
+                * Data enables personalisation: different customers see different versions of the website.<br />
+                * Customer profiling can predict demographics and purchase intent.<br />
+                * Handling big data requires trade‑offs: store raw data for short periods, then summarise or
+                purge.<br />
+                * Dashboards are essential for managers to quickly grasp performance without drowning in data.
+            </p>
+        </div>
+
+        <!-- CONCEPT 4: Distribution Challenges in E‑commerce – Speed, Inventory, and Network Design -->
+        <div class="concept-card">
+            <h2>4. Distribution Challenges in E‑commerce – Speed, Inventory, and Network Design</h2>
+            <h3>Definition</h3>
+            <p>Distribution in e‑commerce refers to the movement of products from suppliers to warehouses (fulfilment
+                centres) and finally to customers. The key challenges are: delivering products quickly (speed),
+                maintaining sufficient inventory to avoid stock‑outs without over‑investing, and designing a
+                cost‑effective network of warehouses.</p>
+            <h3>Explanation</h3>
+            <p>Customer expectations for delivery speed vary by product category. High‑value, high‑consideration items
+                like mobile phones are expected to arrive within 1‑2 days. If a platform cannot meet that promise, the
+                customer will buy from a competitor or an offline store. In contrast, customers buying clothes may be
+                willing to wait 5‑7 days because the purchase is often indulgent rather than urgent.</p>
+            <p>To achieve speed, e‑commerce companies place inventory close to customers. This requires a network of
+                fulfilment centres (FCs) in different geographic regions. However, opening many FCs increases inventory
+                holding costs because each FC must hold safety stock. The lecture introduces a two‑tier network: a
+                “mother” DC (distribution centre) that holds bulk inventory and sources from suppliers, and “child” or
+                “forward” DCs that hold smaller quantities for rapid delivery to nearby customers. The mother DC
+                replenishes the child DCs daily via truck movements.</p>
+            <p>This two‑tier design balances speed and inventory cost. The child DCs can operate with very low inventory
+                (e.g., 1‑2 days of stock) because they are replenished daily. The mother DC holds the bulk inventory and
+                manages longer lead times from suppliers. The trade‑off is that if a child DC runs out of a particular
+                SKU, the order can still be fulfilled from the mother DC, but at a slower speed. This is called a
+                “backup” fulfilment.</p>
+            <p>Another complexity is Minimum Order Quantity (MOQ) imposed by suppliers. For low‑value items like FMCG,
+                suppliers may require a MOQ of 100 units. If the platform wanted to stock that item in three FCs, it
+                would need to buy 300 units total, tying up working capital. By using a two‑tier network, the platform
+                buys only 100 units at the mother DC and then distributes smaller quantities (e.g., 30 each) to child
+                DCs. This reduces total inventory investment while still serving all regions.</p>
+            <h3>Intuition / Mental Model</h3>
+            <p>Think of a water supply system. The mother DC is a large reservoir. Child DCs are local water tanks.
+                Pipes (trucks) carry water daily from the reservoir to the tanks. Households draw water from the nearest
+                tank (fast). If a local tank runs dry, water can still be supplied directly from the reservoir, but it
+                takes longer. This system minimises the amount of water stored in local tanks while ensuring that most
+                of the time, households get water quickly.</p>
+            <h3>Key Definitions</h3>
+            <ul>
+                <li><strong>Fulfilment Centre (FC)</strong>: A warehouse where customer orders are picked, packed, and
+                    shipped.</li>
+                <li><strong>Mother DC</strong>: The central warehouse that holds bulk inventory and supplies other
+                    warehouses.</li>
+                <li><strong>Child DC / Forward DC</strong>: A smaller warehouse located close to customers, replenished
+                    frequently from the mother DC.</li>
+                <li><strong>Two‑tier network</strong>: A distribution network with a central hub (mother) and multiple
+                    spoke (child) warehouses.</li>
+                <li><strong>Minimum Order Quantity (MOQ)</strong>: The smallest quantity a supplier will sell; affects
+                    how much inventory a company must buy at once.</li>
+                <li><strong>Backup fulfilment</strong>: When an order is fulfilled from a more distant warehouse because
+                    the local warehouse is out of stock.</li>
+            </ul>
+            <h3>Formulas (if any)</h3>
+            <p>Not directly. However, inventory holding cost = average inventory × holding cost per unit per year.
+                Two‑tier network reduces average inventory in child DCs.</p>
+            <h3>Common Mistakes</h3>
+            <ul>
+                <li><strong>Misconception 1: “More warehouses always mean faster delivery.”</strong><br />
+                    (Correction: More warehouses increase inventory costs and complexity. The two‑tier network balances
+                    speed and cost.)</li>
+                <li><strong>Misconception 2: “MOQs are irrelevant for e‑commerce because they can
+                        negotiate.”</strong><br />
+                    (Correction: For low‑value, high‑volume items, MOQs are strict. E‑commerce companies must design
+                    their inventory strategy around them.)</li>
+            </ul>
+            <h3>Edge Cases</h3>
+            <ul>
+                <li>For very high‑value items like luxury watches, MOQs may be 1 unit. The two‑tier network may not be
+                    necessary; the platform can hold inventory only in the mother DC and ship directly.</li>
+                <li>During peak seasons (e.g., Diwali), child DCs may need higher safety stock because daily
+                    replenishment trucks may be delayed due to traffic or high volume.</li>
+            </ul>
+            <h3>Real‑world Application</h3>
+            <p>Flipkart operates a multi‑tier network with mother hubs in major cities (e.g., Bengaluru, Delhi) and
+                sorting centres/delivery hubs in smaller cities. The case study of Fab Mart uses Hyderabad as mother DC,
+                and Chennai and Cochin as child DCs.</p>
+            <h3>Key Takeaways</h3>
+            <p>
+                * Speed is critical for certain categories (mobiles), while other categories (lifestyle) can tolerate
+                longer delivery times.<br />
+                * Two‑tier network (mother DC + child DCs) balances speed and inventory cost.<br />
+                * Child DCs are replenished daily from the mother DC, allowing them to hold minimal stock.<br />
+                * MOQs from suppliers force centralised purchasing at the mother DC and redistribution.<br />
+                * Backup fulfilment from mother DC prevents stock‑outs but increases delivery time.
+            </p>
+        </div>
+
+        <!-- CONCEPT 5: Dashboards and Storytelling with Data -->
+        <div class="concept-card">
+            <h2>5. Dashboards and Storytelling with Data – The Final Mile of Analysis</h2>
+            <h3>Definition</h3>
+            <p>A <strong>dashboard</strong> is a visual interface that displays key performance indicators (KPIs) and
+                metrics in a consolidated, easy‑to‑understand format. <strong>Storytelling with data</strong> is the
+                practice of presenting analytical findings in a narrative that highlights actionable insights, rather
+                than just showing raw numbers.</p>
+            <h3>Explanation</h3>
+            <p>In e‑commerce, raw data volumes are overwhelming. Back‑end teams process petabytes of data daily and
+                create summarised dashboards using tools like Google Data Studio, Power BI, or Tableau. These dashboards
+                are refreshed regularly (daily, weekly) and are accessible even on mobile phones. Managers like Omkar do
+                not need to write complex SQL queries; they rely on dashboards to monitor performance.</p>
+            <p>The lecture emphasises a common pitfall: analysts often get lost in the details – they talk about how
+                much data they processed, what techniques they used, and the complexity of their work – but fail to
+                deliver a clear message. The CEO or planning head does not care about the effort; they care about the
+                story: “Are we growing? Are we serving customers fast enough? Are we at risk of stock‑outs?”</p>
+            <p>Effective dashboards are designed with a uniform structure so that managers can quickly spot changes.
+                They typically show trends (e.g., revenue over the last 15 days), comparisons (e.g., SKU‑wise revenue),
+                and alerts (e.g., stock‑out warnings). The key is to distil thousands of data points into 4‑5 numbers
+                that drive decision‑making.</p>
+            <h3>Intuition / Mental Model</h3>
+            <p>Imagine you are driving a car. The dashboard shows speed, fuel level, engine temperature, and warning
+                lights. You do not need to know the intricate mechanics of the engine. You just need the key indicators
+                to make decisions (slow down, refuel, stop). Similarly, a business dashboard gives managers the vital
+                signs of the company without overwhelming them with raw data.</p>
+            <h3>Key Definitions</h3>
+            <ul>
+                <li><strong>Dashboard</strong>: A curated collection of charts, tables, and gauges that display current
+                    and historical performance.</li>
+                <li><strong>KPI (Key Performance Indicator)</strong>: A measurable value that demonstrates how
+                    effectively a company is achieving key business objectives (e.g., revenue, stock‑out rate, delivery
+                    speed).</li>
+                <li><strong>Data storytelling</strong>: The skill of combining data, visuals, and narrative to convey
+                    insights and persuade action.</li>
+                <li><strong>Data summarisation</strong>: The process of aggregating detailed data into higher‑level
+                    summaries (e.g., daily sales totals) to reduce complexity.</li>
+            </ul>
+            <h3>Formulas (if any)</h3>
+            <p>Not applicable.</p>
+            <h3>Common Mistakes</h3>
+            <ul>
+                <li><strong>Misconception 1: “More charts on a dashboard are better.”</strong><br />
+                    (Correction: Cluttered dashboards confuse decision‑makers. The best dashboards highlight only the
+                    most critical metrics.)</li>
+                <li><strong>Misconception 2: “The technical complexity of the analysis is what matters.”</strong><br />
+                    (Correction: Business leaders care about actionable insights, not the methodology. A simple bar
+                    chart that drives a decision is more valuable than a complex model that no one understands.)</li>
+            </ul>
+            <h3>Edge Cases</h3>
+            <ul>
+                <li>When a dashboard is refreshed, sudden spikes or drops may be due to data errors (e.g., missing
+                    entries) rather than real business changes. Data quality checks are essential.</li>
+                <li>Different stakeholders need different dashboards: the CEO cares about growth and profitability; the
+                    planning head cares about inventory levels; the CFO cares about working capital.</li>
+            </ul>
+            <h3>Real‑world Application</h3>
+            <p>Flipkart’s inventory planning team uses dashboards to monitor stock‑out rates, inventory turnover, and
+                inbound shipment status. These dashboards are accessible on mobile devices so that managers can respond
+                to issues even on weekends.</p>
+            <h3>Key Takeaways</h3>
+            <p>
+                * Dashboards transform raw data into actionable visuals.<br />
+                * The goal is to tell a story, not to show off technical skills.<br />
+                * Effective dashboards are simple, structured, and updated regularly.<br />
+                * Managers need 4‑5 key numbers, not thousands of rows.<br />
+                * Always focus on the message: what does the data mean for the business?
+            </p>
+        </div>
+
+        <!-- SUMMARY TABLE -->
+        <div class="concept-card">
+            <h2>Lecture Summary</h2>
+            <table border="1" cellpadding="8" style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Key Definition</th>
+                        <th>Formula / Condition</th>
+                        <th>Common Mistake</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Indian e‑commerce industry</td>
+                        <td>Single‑digit market share, 60‑80% growth, huge untapped potential in Tier‑2/3 cities</td>
+                        <td>Growth rate = (Current – Previous)/Previous × 100%</td>
+                        <td>Believing e‑commerce already dominates retail</td>
+                    </tr>
+                    <tr>
+                        <td>Platform vs Niche</td>
+                        <td>Platform: multiple categories; Niche: single category</td>
+                        <td>Complexity increases with heterogeneity</td>
+                        <td>Assuming platform always better</td>
+                    </tr>
+                    <tr>
+                        <td>Customer profiling & personalisation</td>
+                        <td>Using behavioural data to customise experience per user</td>
+                        <td>No formula; scale: petabytes/day</td>
+                        <td>Thinking more data automatically improves decisions</td>
+                    </tr>
+                    <tr>
+                        <td>Two‑tier distribution network</td>
+                        <td>Mother DC (bulk) + child DCs (near customers), daily replenishment</td>
+                        <td>Inventory cost = avg stock × holding cost</td>
+                        <td>More warehouses always = faster delivery</td>
+                    </tr>
+                    <tr>
+                        <td>Dashboards & storytelling</td>
+                        <td>Visual KPIs that tell a concise business story</td>
+                        <td>No formula</td>
+                        <td>Focusing on technical complexity instead of insights</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- QUICK REVISION CHECKLIST -->
+        <div class="concept-card">
+            <h2>Quick Revision Checklist</h2>
+            <ul>
+                <li>Explain why Indian e‑commerce has high growth potential despite low current penetration.</li>
+                <li>Differentiate platform and niche e‑commerce companies with examples.</li>
+                <li>Describe how e‑commerce data enables personalisation and customer profiling.</li>
+                <li>Draw and explain a two‑tier distribution network (mother DC and child DCs).</li>
+                <li>Define MOQ and explain how it influences inventory placement.</li>
+                <li>State why speed expectations differ by product category (mobiles vs lifestyle).</li>
+                <li>List the key elements of an effective business dashboard.</li>
+                <li>Identify the common pitfall of “losing the message” in data analysis.</li>
+            </ul>
+        </div>
+        <div id="questions-container"></div>
+    </div>
+    <script>
+        window.questionsData = [
+            {
+                "id": 101,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "A platform e‑commerce company has 50 SKUs across three categories. The supplier for Category X requires an MOQ of 200 units per SKU. If the company wants to stock this SKU in 4 regional DCs, how many total units must it purchase if it does NOT use a two‑tier network? Assume each DC must hold the MOQ independently.",
+                "options": [
+                    "200 units",
+                    "800 units",
+                    "2000 units",
+                    "50 units"
+                ],
+                "correct": 1,
+                "explanation": "Without a two‑tier network, each DC would need to purchase the MOQ independently: 4 DCs × 200 units = 800 units.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. MOQ per SKU = 200 units.<br>2. Number of DCs = 4.<br>3. Without centralisation, each DC buys its own MOQ: 4 × 200 = 800 units.<br>4. With a two‑tier network, the company would buy 200 units at mother DC and redistribute, reducing total purchase to 200 units.<br>5. The question asks for the scenario WITHOUT two‑tier network.<br>6. Option B (800) is correct.<br><br><strong>Why the correct answer is correct:</strong><br>MOQs multiply across DCs when each DC sources independently.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (200): This is the MOQ for one DC, not four.<br>* Option C (2000): Too high; miscalculation.<br>* Option D (50): Irrelevant.<br><br><strong>How to approach this type of problem:</strong><br>Multiply MOQ by number of DCs when centralisation is absent.<br><br><strong>Concept used:</strong> MOQ multiplication effect.<br><strong>Points to remember:</strong><br>* Two‑tier network centralises purchasing.<br>* Without it, inventory investment scales with number of DCs.<br>* This is why platforms use mother DCs.<br><strong>Key takeaway:</strong> MOQs create strong incentives for centralised inventory."
+            },
+            {
+                "id": 102,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "An e‑commerce company has a mother DC in City A and child DCs in Cities B and C. Daily demand at child DC B for a particular SKU is 50 units, with a standard deviation of 10 units. Replenishment lead time from mother DC to child DC is 1 day. If the company wants a 95% service level (z=1.65), what should be the safety stock at child DC B? Assume demand is normally distributed.",
+                "options": [
+                    "10 units",
+                    "16.5 units",
+                    "50 units",
+                    "82.5 units"
+                ],
+                "correct": 1,
+                "explanation": "Safety stock = z × σ_demand × √(lead time). Here σ_demand = 10, lead time = 1 day, z=1.65. So safety stock = 1.65 × 10 × 1 = 16.5 units.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Formula: Safety stock = z × σ_d × √(L), where L is lead time in days.<br>2. Given: σ_d = 10 units per day, L = 1 day, z = 1.65.<br>3. √(L) = √1 = 1.<br>4. Safety stock = 1.65 × 10 × 1 = 16.5 units.<br>5. Rounding may be applied in practice, but 16.5 is exact.<br>6. Option B is correct.<br><br><strong>Why the correct answer is correct:</strong><br>Safety stock covers demand variability during lead time.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (10): This is just σ_d, ignoring z.<br>* Option C (50): This is the average daily demand, not safety stock.<br>* Option D (82.5): This might be z × σ_d × √(L) with L=25? No.<br><br><strong>How to approach this type of problem:</strong><br>Memorise safety stock formula: z × σ_d × √(L).<br><br><strong>Concept used:</strong> Safety stock calculation.<br><strong>Points to remember:</strong><br>* Service level determines z.<br>* Lead time variability can also be factored.<br>* Safety stock protects against demand uncertainty.<br><strong>Key takeaway:</strong> Higher service level requires more safety stock."
+            },
+            {
+                "id": 103,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "A two‑tier distribution network has a mother DC that replenishes two child DCs daily. The holding cost per unit per day at a child DC is ₹2. The daily demand at a child DC is 100 units. If the child DC holds 3 days of inventory (including safety stock), what is the daily holding cost incurred at that child DC for this SKU?",
+                "options": [
+                    "₹200",
+                    "₹300",
+                    "₹600",
+                    "₹1200"
+                ],
+                "correct": 2,
+                "explanation": "Average inventory = 3 days × 100 units/day = 300 units. Daily holding cost = 300 units × ₹2/unit/day = ₹600.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Average inventory = days of inventory × daily demand = 3 × 100 = 300 units.<br>2. Holding cost per unit per day = ₹2.<br>3. Total daily holding cost = 300 × ₹2 = ₹600.<br>4. Option C is correct.<br><br><strong>Why the correct answer is correct:</strong><br>Holding cost scales linearly with average inventory level.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (₹200): This is 2 × 100, incorrectly using only one day.<br>* Option B (₹300): This is 3 × 100, ignoring holding cost per unit.<br>* Option D (₹1200): Double the correct value.<br><br><strong>How to approach this type of problem:</strong><br>Calculate average inventory first, then multiply by holding cost per unit.<br><br><strong>Concept used:</strong> Inventory holding cost.<br><strong>Points to remember:</strong><br>* Average inventory = (order quantity)/2 + safety stock, or days of supply × daily demand.<br>* Holding cost is a key component of total logistics cost.<br>* Reducing inventory days reduces holding cost.<br><strong>Key takeaway:</strong> Daily replenishment minimises child DC inventory and thus holding cost."
+            },
+            {
+                "id": 104,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "An e‑commerce platform has 3 business units: Mobiles (average selling price ₹15,000), FMCG (average price ₹150), Lifestyle (average price ₹2,000). In a given month, the unit sales volumes are: Mobiles 5,000 units, FMCG 200,000 units, Lifestyle 30,000 units. What is the approximate revenue contribution of the Mobile business unit as a percentage of total revenue?",
+                "options": [
+                    "15%",
+                    "30%",
+                    "45%",
+                    "60%"
+                ],
+                "correct": 2,
+                "explanation": "Revenue from Mobiles = 5,000 × ₹15,000 = ₹7.5 crore. FMCG = 200,000 × ₹150 = ₹3 crore. Lifestyle = 30,000 × ₹2,000 = ₹6 crore. Total = ₹16.5 crore. Mobile % = 7.5/16.5 ≈ 45.45% ≈ 45%.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Compute revenue for each BU:<br>   - Mobiles: 5,000 × 15,000 = 75,000,000 (₹7.5 crore).<br>   - FMCG: 200,000 × 150 = 30,000,000 (₹3 crore).<br>   - Lifestyle: 30,000 × 2,000 = 60,000,000 (₹6 crore).<br>2. Total revenue = 7.5 + 3 + 6 = ₹16.5 crore.<br>3. Mobile share = 7.5 / 16.5 = 0.4545... = 45.45%.<br>4. Closest option is 45%.<br>5. Option C is correct.<br><br><strong>Why the correct answer is correct:</strong><br>Despite lower unit volume, high‑priced mobiles contribute a large revenue share.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (15%): Too low; underestimates mobile contribution.<br>* Option B (30%): Also too low.<br>* Option D (60%): Overestimates.<br><br><strong>How to approach this type of problem:</strong><br>Calculate revenue as price × quantity, then compute percentage.<br><br><strong>Concept used:</strong> Revenue analysis.<br><strong>Points to remember:</strong><br>* High‑value items can dominate revenue despite low volume.<br>* Pareto principle often applies.<br>* This is why e‑commerce focuses on mobile sales.<br><strong>Key takeaway:</strong> Revenue contribution is not proportional to unit volume."
+            },
+            {
+                "id": 105,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "A child DC has an opening stock of 500 units of SKU X on Monday morning. During the day, it receives a replenishment of 200 units from the mother DC and sells 400 units. What is the closing stock at the end of the day, and what is the inventory turnover (in days) if average daily demand is 400 units?",
+                "options": [
+                    "Closing stock = 300 units, turnover = 1.25 days",
+                    "Closing stock = 300 units, turnover = 1 day",
+                    "Closing stock = 700 units, turnover = 1.75 days",
+                    "Closing stock = 100 units, turnover = 0.25 days"
+                ],
+                "correct": 1,
+                "explanation": "Closing stock = Opening + Receipts - Sales = 500 + 200 - 400 = 300 units. Inventory turnover in days = Average inventory / Average daily demand. Average inventory ≈ (500+300)/2 = 400 units. Turnover = 400 / 400 = 1 day.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Compute closing stock: 500 + 200 - 400 = 300 units.<br>2. Compute average inventory: (opening + closing)/2 = (500+300)/2 = 400 units.<br>3. Daily demand is given as 400 units.<br>4. Inventory turnover in days = average inventory / daily demand = 400 / 400 = 1 day.<br>5. Option B matches: closing stock 300 units, turnover 1 day.<br><br><strong>Why the correct answer is correct:</strong><br>The formula for days of inventory is standard.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (1.25 days): This would be based on a different calculation or misunderstanding of the formula.<br>* Option C (1.75 days): No basis.<br>* Option D (700 units): Incorrect closing stock calculation.<br><br><strong>How to approach this type of problem:</strong><br>Always use average inventory for turnover days, not closing stock alone.<br><br><strong>Concept used:</strong> Inventory turnover metrics.<br><strong>Points to remember:</strong><br>* Turnover (days) = average inventory / daily demand.<br>* Turnover (times) = annual COGS / average inventory.<br>* Closing stock is a point-in-time measure.<br><strong>Key takeaway:</strong> Use average inventory for meaningful turnover calculation."
+            },
+            {
+                "id": 105,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "A child DC has an opening stock of 500 units of SKU X on Monday morning. During the day, it receives a replenishment of 200 units from the mother DC and sells 400 units. What is the closing stock at the end of the day, and what is the inventory turnover (in days) if average daily demand is 400 units? (Assume inventory turnover in days = average inventory / daily demand, and average inventory = (opening + closing)/2.)",
+                "options": [
+                    "Closing stock = 300 units, turnover = 0.75 days",
+                    "Closing stock = 300 units, turnover = 1 day",
+                    "Closing stock = 300 units, turnover = 1.25 days",
+                    "Closing stock = 700 units, turnover = 1.5 days"
+                ],
+                "correct": 1,
+                "explanation": "Closing stock = Opening + Receipts - Sales = 500 + 200 - 400 = 300 units. Average inventory = (500 + 300)/2 = 400 units. Turnover (days) = Average inventory / Daily demand = 400 / 400 = 1 day.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Compute closing stock: 500 + 200 - 400 = 300 units.<br>2. Compute average inventory: (opening + closing)/2 = (500+300)/2 = 400 units.<br>3. Daily demand is given as 400 units.<br>4. Inventory turnover in days = average inventory / daily demand = 400 / 400 = 1 day.<br>5. Option B matches: closing stock 300 units, turnover 1 day.<br><br><strong>Why the correct answer is correct:</strong><br>The formula for days of inventory is standard.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (0.75 days): This would be closing stock/daily demand, not average.<br>* Option C (1.25 days): No basis.<br>* Option D (700 units): Incorrect closing stock calculation.<br><br><strong>How to approach this type of problem:</strong><br>Always use average inventory for turnover days, not closing stock alone.<br><br><strong>Concept used:</strong> Inventory turnover metrics.<br><strong>Points to remember:</strong><br>* Turnover (days) = average inventory / daily demand.<br>* Turnover (times) = annual COGS / average inventory.<br>* Closing stock is a point-in-time measure.<br><strong>Key takeaway:</strong> Use average inventory for meaningful turnover calculation."
+            },
+            {
+                "id": 106,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "An e‑commerce company has 30 SKUs. The total revenue over 15 days is ₹4.3 crore. The top 3 SKUs contribute 45% of total revenue. The next 5 SKUs contribute 30%. The remaining SKUs contribute 25%. If the company wants to focus its inventory management efforts using ABC analysis, which SKUs should be classified as 'A' (highest priority) based on revenue contribution?",
+                "options": [
+                    "Top 3 SKUs (10% of SKUs, 45% revenue)",
+                    "Top 8 SKUs (27% of SKUs, 75% revenue)",
+                    "Top 15 SKUs (50% of SKUs, 90% revenue)",
+                    "All 30 SKUs"
+                ],
+                "correct": 0,
+                "explanation": "ABC analysis typically classifies A items as those contributing a large share (e.g., 70-80%) with a small number of items (e.g., 10-20%). Here top 3 SKUs (10% of SKUs) contribute 45%, which is a significant share and would be considered A items. Option A is the best fit.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. ABC analysis: A items = high value, small quantity (e.g., 10-20% of items contributing 70-80% of value).<br>2. Here, top 3 SKUs = 10% of 30 SKUs, contribute 45% of revenue. While 45% is not 70%, it is still the highest concentration. In many practical ABC analyses, the threshold can be lower, but among options, A is the most consistent with the concept.<br>3. Option B (top 8, 27% of SKUs, 75% revenue) would be A+B combined.<br>4. Option C is too broad.<br>5. Option D is all items.<br>6. Therefore, the 'A' items are the top 3.<br>7. Option A is correct.<br><br><strong>Why the correct answer is correct:</strong><br>ABC analysis prioritises the few items that generate most of the value.<br><br><strong>Why other options are incorrect:</strong><br>* Option B: This would include B items as well.<br>* Option C: This would include C items.<br>* Option D: Defeats the purpose.<br><br><strong>How to approach this type of problem:</strong><br>Identify the smallest set that accounts for a large share (typically 70-80% for A, but context matters).<br><br><strong>Concept used:</strong> ABC inventory classification.<br><strong>Points to remember:</strong><br>* A items: high value, tight control.<br>* B items: medium value, moderate control.<br>* C items: low value, simple control.<br>* Based on Pareto principle.<br><strong>Key takeaway:</strong> Focus inventory efforts on top revenue drivers."
+            },
+            {
+                "id": 107,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "A mother DC holds 10,000 units of a particular SKU. The daily demand across all child DCs for this SKU is 500 units. The supplier lead time for the mother DC is 7 days. The company wants to maintain a safety stock of 2 days of demand at the mother DC. What is the reorder point for the mother DC?",
+                "options": [
+                    "500 units",
+                    "3,500 units",
+                    "4,500 units",
+                    "10,000 units"
+                ],
+                "correct": 2,
+                "explanation": "Reorder point = demand during lead time + safety stock. Demand during lead time = 500 units/day × 7 days = 3,500 units. Safety stock = 2 days × 500 = 1,000 units. Total ROP = 4,500 units.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Daily demand = 500 units.<br>2. Lead time = 7 days.<br>3. Demand during lead time = 500 × 7 = 3,500 units.<br>4. Safety stock = 2 days of demand = 500 × 2 = 1,000 units.<br>5. Reorder point = 3,500 + 1,000 = 4,500 units.<br>6. Option C is correct.<br><br><strong>Why the correct answer is correct:</strong><br>When inventory drops to ROP, a new order is placed so that stock arrives just as safety stock is being consumed.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (500): Only one day's demand, ignoring lead time.<br>* Option B (3,500): Only lead time demand, no safety stock.<br>* Option D (10,000): Current stock level, not ROP.<br><br><strong>How to approach this type of problem:</strong><br>ROP = (daily demand × lead time) + safety stock.<br><br><strong>Concept used:</strong> Reorder point calculation.<br><strong>Points to remember:</strong><br>* Lead time demand is the expected consumption during replenishment.<br>* Safety stock covers variability.<br>* ROP triggers the ordering process.<br><strong>Key takeaway:</strong> ROP ensures inventory doesn't go negative during lead time."
+            },
+            {
+                "id": 108,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "An e‑commerce company has two child DCs: Chennai and Cochin. The daily demand for SKU M01 in Chennai is 100 units, and in Cochin is 60 units. The mother DC in Hyderabad holds all inventory. The cost of shipping one unit from Hyderabad to Chennai is ₹10, and to Cochin is ₹15. The company is considering holding inventory at child DCs. If holding cost per unit per day at a child DC is ₹2, and daily replenishment is done, what is the total daily cost (transport + holding) if the child DCs hold 2 days of demand each? Assume no safety stock.",
+                "options": [
+                    "₹(100×10 + 60×15) + 2×(200+120) = ₹1,900 + ₹640 = ₹2,540",
+                    "₹(100×10 + 60×15) = ₹1,900",
+                    "₹2×(200+120) = ₹640",
+                    "₹(100×10 + 60×15) × 2 = ₹3,800"
+                ],
+                "correct": 0,
+                "explanation": "Transport cost: Chennai: 100 units × ₹10 = ₹1,000; Cochin: 60 × ₹15 = ₹900; total transport = ₹1,900. Holding cost: Chennai holds 2 days demand = 200 units; Cochin holds 120 units; total holding = (200+120) × ₹2 = ₹640. Total = ₹2,540.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Daily transport cost = (Chennai demand × transport cost per unit) + (Cochin demand × transport cost per unit) = (100×10) + (60×15) = 1,000 + 900 = ₹1,900.<br>2. Inventory held at child DCs = 2 days of demand each: Chennai = 200 units, Cochin = 120 units.<br>3. Holding cost = (200+120) × ₹2 = 320 × 2 = ₹640.<br>4. Total daily cost = 1,900 + 640 = ₹2,540.<br>5. Option A is correct.<br><br><strong>Why the correct answer is correct:</strong><br>The total cost includes both transportation and holding. The two‑tier network incurs both.<br><br><strong>Why other options are incorrect:</strong><br>* Option B: Only transport cost, ignoring holding.<br>* Option C: Only holding cost.<br>* Option D: Double transport cost, incorrect.<br><br><strong>How to approach this type of problem:</strong><br>Sum all relevant cost components.<br><br><strong>Concept used:</strong> Total logistics cost.<br><strong>Points to remember:</strong><br>* Transport cost = volume × distance-based rate.<br>* Holding cost = average inventory × holding cost per unit.<br>* Trade‑off: more inventory reduces transport frequency but increases holding cost.<br><strong>Key takeaway:</strong> Optimal inventory level minimises total cost."
+            },
+            {
+                "id": 109,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "A customer in a tier‑2 city places an order for a mobile phone. The local child DC has no stock. The mother DC has stock. The promise engine shows delivery in 5 days. The customer abandons the cart. What does this scenario indicate?",
+                "options": [
+                    "The customer was not serious about buying",
+                    "The delivery promise was too long for a mobile phone, causing the customer to switch to a competitor or offline store",
+                    "The price was too high",
+                    "The website had a technical glitch"
+                ],
+                "correct": 1,
+                "explanation": "For high‑value items like mobiles, customers expect fast delivery (1‑2 days). A 5‑day promise is unacceptable, leading to cart abandonment.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. The lecture emphasises that mobile phone customers will not wait 2‑3 days.<br>2. A 5‑day promise is far beyond expectations.<br>3. The customer likely abandoned because they can get faster delivery elsewhere.<br>4. Option B is correct.<br><br><strong>Why the correct answer is correct:</strong><br>Speed is a critical success factor for mobiles.<br><br><strong>Why other options are incorrect:</strong><br>* Option A: The customer was serious but deterred by speed.<br>* Option C: Price is not mentioned.<br>* Option D: No glitch; it's a stock‑out causing backup fulfilment.<br><br><strong>How to approach this type of problem:</strong><br>Connect customer behaviour to category expectations.<br><br><strong>Concept used:</strong> Customer expectations by category.<br><strong>Points to remember:</strong><br>* Mobiles: speed > price.<br>* Long delivery promises lead to lost sales.<br>* Stock‑outs at child DCs cause inefficient orders and slow delivery.<br><strong>Key takeaway:</strong> Local stock‑outs directly impact conversion rates for speed‑sensitive items."
+            },
+            {
+                "id": 110,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "An e‑commerce company has a dashboard that shows the following for a particular SKU: Opening stock at child DC = 150 units, daily sales = 75 units, daily replenishment from mother DC = 100 units, and no safety stock. How many days will it take for the child DC to run out of stock if replenishment stops unexpectedly (assume no further replenishment)?",
+                "options": [
+                    "1 day",
+                    "2 days",
+                    "3 days",
+                    "4 days"
+                ],
+                "correct": 1,
+                "explanation": "With no replenishment, stock lasts for opening stock / daily sales = 150 / 75 = 2 days.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Without replenishment, inventory decreases by daily sales.<br>2. Days until stock‑out = opening stock / daily sales = 150 / 75 = 2 days.<br>3. Option B is correct.<br><br><strong>Why the correct answer is correct:</strong><br>Simple depletion calculation.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (1 day): Would require sales of 150 units/day.<br>* Option C (3 days): Would require sales of 50 units/day.<br>* Option D (4 days): Would require sales of 37.5 units/day.<br><br><strong>How to approach this type of problem:</strong><br>Divide available stock by daily consumption rate.<br><br><strong>Concept used:</strong> Stock‑out time calculation.<br><strong>Points to remember:</strong><br>* This is a worst‑case scenario (no replenishment).<br>* In reality, daily replenishment prevents stock‑outs.<br>* Safety stock provides buffer.<br><strong>Key takeaway:</strong> Daily replenishment is critical to avoid stock‑outs."
+            },
+            {
+                "id": 111,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "An e‑commerce company uses a two‑tier network. The mother DC places an order with a supplier every 7 days. The supplier takes 3 days to deliver. The daily demand at the mother DC is 1,000 units. What is the maximum inventory level at the mother DC just after an order arrives, assuming the order quantity is exactly the demand during the reorder cycle (7 days) and no safety stock?",
+                "options": [
+                    "3,000 units",
+                    "7,000 units",
+                    "10,000 units",
+                    "14,000 units"
+                ],
+                "correct": 1,
+                "explanation": "Order quantity = daily demand × reorder cycle = 1,000 × 7 = 7,000 units. Just after order arrival, inventory = previous inventory (which would have been nearly zero if just in time) + order quantity = 7,000 units. Assuming no safety stock and that inventory is consumed exactly over the cycle.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Reorder cycle (time between orders) = 7 days.<br>2. Daily demand = 1,000 units.<br>3. Order quantity = demand during cycle = 7,000 units.<br>4. Just after order arrival, inventory = order quantity (if previous stock is depleted).<br>5. Maximum inventory = 7,000 units.<br>6. Option B is correct.<br><br><strong>Why the correct answer is correct:</strong><br>In a periodic review system with no safety stock, the maximum inventory equals the order quantity.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (3,000): This is lead time demand (3 days), not order quantity.<br>* Option C (10,000): Sum of cycle and lead time? 7+3=10 days demand = 10,000, but that would be if order was placed at the start of lead time? Not correct.<br>* Option D (14,000): Double the order quantity.<br><br><strong>How to approach this type of problem:</strong><br>Identify the order quantity and the timing of inventory peak.<br><br><strong>Concept used:</strong> Inventory cycle.<br><strong>Points to remember:</strong><br>* Maximum inventory = order quantity if no safety stock and stock reaches zero before order arrives.<br>* Order quantity = demand during review period.<br>* Lead time affects when order arrives, not the peak level if order is placed at optimal time.<br><strong>Key takeaway:</strong> The reorder cycle determines order quantity and maximum inventory."
+            },
+            {
+                "id": 112,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "A customer in Chennai orders a laptop (high‑value item). The Chennai child DC has stock. The order is promised in 1 day. The customer completes the purchase. Which of the following statements best describes this scenario?",
+                "options": [
+                    "This is an inefficient order because it used local stock",
+                    "This is an efficient order because it was fulfilled from the local DC, providing fast delivery",
+                    "The order will be fulfilled from Hyderabad to save cost",
+                    "The customer will likely cancel due to high price"
+                ],
+                "correct": 1,
+                "explanation": "Fulfilment from the local child DC is efficient because it provides fast delivery and lower transportation cost. The lecture defines inefficient orders as those served from a distant DC.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Efficient order = fulfilled from local (child) DC.<br>2. Inefficient order = fulfilled from mother DC due to local stock‑out.<br>3. Here, Chennai DC had stock, so order is efficient.<br>4. Option B is correct.<br><br><strong>Why the correct answer is correct:</strong><br>Local fulfilment is the goal of the two‑tier network.<br><br><strong>Why other options are incorrect:</strong><br>* Option A: Inefficient order is the opposite.<br>* Option C: No reason to use Hyderabad when local stock exists.<br>* Option D: Price is not mentioned.<br><br><strong>How to approach this type of problem:</strong><br>Recall the definition of efficient vs inefficient orders from the CEO's questions.<br><br><strong>Concept used:</strong> Fulfilment efficiency.<br><strong>Points to remember:</strong><br>* Efficient: local DC, fast, lower cost.<br>* Inefficient: backup DC, slower, higher cost.<br>* Goal: maximise efficient orders.<br><strong>Key takeaway:</strong> Efficient orders indicate good inventory placement."
+            },
+            {
+                "id": 113,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "An e‑commerce company has the following data for a week (Monday to Sunday) for SKU F01 (FMCG): Daily sales: 120, 130, 110, 140, 125, 135, 115. The company wants to compute the coefficient of variation (CV) of daily sales to understand demand variability. What is the approximate CV? (Standard deviation formula: sample SD)",
+                "options": [
+                    "5%",
+                    "8%",
+                    "12%",
+                    "20%"
+                ],
+                "correct": 1,
+                "explanation": "Mean = (120+130+110+140+125+135+115)/7 = 875/7 = 125. Deviations: -5,5,-15,15,0,10,-10. Squares: 25,25,225,225,0,100,100. Sum squares = 700. Variance = 700/6 ≈ 116.67. SD = √116.67 ≈ 10.8. CV = (SD/mean)×100 = (10.8/125)×100 ≈ 8.64% ≈ 8%.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Compute mean: sum = 120+130+110+140+125+135+115 = 875, mean = 875/7 = 125.<br>2. Compute deviations from mean: -5, +5, -15, +15, 0, +10, -10.<br>3. Square deviations: 25, 25, 225, 225, 0, 100, 100.<br>4. Sum of squares = 700.<br>5. Sample variance = sum of squares / (n-1) = 700 / 6 ≈ 116.6667.<br>6. Sample standard deviation = √116.6667 ≈ 10.801.<br>7. Coefficient of variation = (SD / mean) × 100% = (10.801 / 125) × 100% ≈ 8.64%.<br>8. Closest option is 8%.<br>9. Option B is correct.<br><br><strong>Why the correct answer is correct:</strong><br>CV measures relative variability; FMCG demand is moderately variable.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (5%): Too low.<br>* Option C (12%): Slightly high.<br>* Option D (20%): Too high.<br><br><strong>How to approach this type of problem:</strong><br>Calculate mean, then SD, then CV = SD/mean.<br><br><strong>Concept used:</strong> Coefficient of variation.<br><strong>Points to remember:</strong><br>* CV allows comparison of variability across different scales.<br>* Higher CV indicates more unpredictable demand.<br>* Used in safety stock calculations.<br><strong>Key takeaway:</strong> Demand variability affects inventory requirements."
+            },
+            {
+                "id": 114,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "A platform company has 100 SKUs. The total revenue is ₹100 crore. The top 10 SKUs contribute ₹60 crore. The next 20 SKUs contribute ₹30 crore. The remaining 70 SKUs contribute ₹10 crore. According to ABC analysis, which SKUs should be classified as 'B' items?",
+                "options": [
+                    "Top 10 SKUs",
+                    "Next 20 SKUs",
+                    "Remaining 70 SKUs",
+                    "All 100 SKUs"
+                ],
+                "correct": 1,
+                "explanation": "Typically, A items are top few (e.g., 10-20%) contributing 70-80% of value. Here top 10 (10%) contribute 60% – could be A. B items are next 20-30% contributing 15-20% of value. Here next 20 (20%) contribute 30% – that fits B. C items are the rest contributing low value.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. A items: high value, small count. Here top 10 SKUs = 10% of SKUs, 60% of revenue. That's borderline A.<br>2. B items: medium value, medium count. Next 20 SKUs = 20% of SKUs, 30% of revenue.<br>3. C items: low value, large count. Remaining 70 SKUs = 70% of SKUs, 10% of revenue.<br>4. Therefore, B items are the next 20 SKUs.<br>5. Option B is correct.<br><br><strong>Why the correct answer is correct:</strong><br>ABC classification is based on cumulative contribution.<br><br><strong>Why other options are incorrect:</strong><br>* Option A: These are A items.<br>* Option C: These are C items.<br>* Option D: All items would ignore classification.<br><br><strong>How to approach this type of problem:</strong><br>Sort by revenue descending, compute cumulative percentage, and assign classes based on typical thresholds (e.g., A: 0-70%, B: 70-90%, C: 90-100%).<br><br><strong>Concept used:</strong> ABC inventory classification.<br><strong>Points to remember:</strong><br>* A: tight control, accurate records.<br>* B: moderate control.<br>* C: minimal control, EOQ.<br>* Thresholds can vary by company.<br><strong>Key takeaway:</strong> ABC analysis helps prioritise inventory management efforts."
+            },
+            {
+                "id": 115,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "An e‑commerce company has a dashboard that shows the following for a child DC: opening stock = 250 units, daily sales = 80 units, daily replenishment = 100 units. What is the closing stock after 5 days, assuming no other changes and that replenishment occurs before sales each day?",
+                "options": [
+                    "250 units",
+                    "350 units",
+                    "450 units",
+                    "550 units"
+                ],
+                "correct": 1,
+                "explanation": "Net change per day = replenishment - sales = 100 - 80 = +20 units. After 5 days, net increase = 5 × 20 = 100 units. Closing stock = opening + net increase = 250 + 100 = 350 units.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Daily net change = incoming replenishment - outgoing sales = 100 - 80 = +20 units.<br>2. Over 5 days, total net change = 5 × 20 = +100 units.<br>3. Closing stock = opening stock + net change = 250 + 100 = 350 units.<br>4. Option B is correct.<br><br><strong>Why the correct answer is correct:</strong><br>Stock level changes by the difference between inflow and outflow.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (250): Assumes no change.<br>* Option C (450): Would require net change of +200 over 5 days (40/day).<br>* Option D (550): Would require +300 net change (60/day).<br><br><strong>How to approach this type of problem:</strong><br>Calculate net daily change and multiply by number of days.<br><br><strong>Concept used:</strong> Inventory balance equation.<br><strong>Points to remember:</strong><br>* Closing = Opening + Inflow - Outflow.<br>* Daily replenishment keeps child DC stock stable.<br>* If replenishment exceeds sales, stock grows.<br><strong>Key takeaway:</strong> Monitoring net change helps adjust replenishment quantities."
+            },
+            {
+                "id": 116,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "A two‑tier network has a mother DC that replenishes two child DCs daily. The cost of transportation from mother to each child DC is fixed per truck, not per unit. The mother DC can send a truck with up to 1,000 units. Child DC A needs 400 units per day, Child DC B needs 600 units per day. If the company sends one truck to each child DC every day, what is the truck utilisation for each?",
+                "options": [
+                    "A: 40%, B: 60%",
+                    "A: 100%, B: 100%",
+                    "A: 40%, B: 100%",
+                    "A: 60%, B: 40%"
+                ],
+                "correct": 0,
+                "explanation": "Utilisation = actual units / capacity. For A: 400/1000 = 40%. For B: 600/1000 = 60%. So both are underutilised. Option A is correct.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Truck capacity = 1,000 units.<br>2. Child DC A demand = 400 units/day → utilisation = 400/1000 = 40%.<br>3. Child DC B demand = 600 units/day → utilisation = 600/1000 = 60%.<br>4. Option A matches.<br><br><strong>Why the correct answer is correct:</strong><br>Low utilisation indicates inefficiency; the company might consider consolidating shipments or using smaller trucks.<br><br><strong>Why other options are incorrect:</strong><br>* Option B (100% each): Would require 1,000 units each.<br>* Option C (40%, 100%): Incorrect for B.<br>* Option D (60%, 40%): Reversed.<br><br><strong>How to approach this type of problem:</strong><br>Divide actual load by capacity.<br><br><strong>Concept used:</strong> Transportation efficiency.<br><strong>Points to remember:</strong><br>* Underutilised trucks increase cost per unit.<br>* Consolidating shipments to multiple DCs in one route can improve utilisation.<br>* Daily replenishment may lead to inefficiency if demand is low.<br><strong>Key takeaway:</strong> Truck utilisation is a key logistics KPI."
+            },
+            {
+                "id": 117,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "A customer buys a ₹50,000 mobile phone from an e‑commerce site. The company's gross margin on this sale is 20%. The customer acquisition cost is ₹2,000. If the customer makes 3 such purchases over their lifetime, what is the customer lifetime value (CLV) assuming no other costs?",
+                "options": [
+                    "₹10,000",
+                    "₹28,000",
+                    "₹30,000",
+                    "₹50,000"
+                ],
+                "correct": 1,
+                "explanation": "Gross profit per purchase = 20% of ₹50,000 = ₹10,000. Total gross profit from 3 purchases = ₹30,000. Subtract acquisition cost = ₹2,000 → CLV = ₹28,000.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Gross profit per sale = price × margin = 50,000 × 0.20 = ₹10,000.<br>2. Total gross profit over 3 purchases = 3 × 10,000 = ₹30,000.<br>3. Customer acquisition cost (CAC) = ₹2,000.<br>4. CLV = total gross profit - CAC = 30,000 - 2,000 = ₹28,000.<br>5. Option B is correct.<br><br><strong>Why the correct answer is correct:</strong><br>CLV measures the net profit a customer brings over their relationship with the company.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (₹10,000): Only one purchase's gross profit, ignoring acquisition cost.<br>* Option C (₹30,000): Forgot to subtract CAC.<br>* Option D (₹50,000): Revenue, not profit.<br><br><strong>How to approach this type of problem:</strong><br>CLV = (gross margin per purchase × number of purchases) - CAC.<br><br><strong>Concept used:</strong> Customer lifetime value.<br><strong>Points to remember:</strong><br>* CLV helps decide how much to spend on acquisition.<br>* Retention increases CLV.<br>* High‑value items like mobiles can have high CLV.<br><strong>Key takeaway:</strong> CLV > CAC is necessary for profitable growth."
+            },
+            {
+                "id": 118,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "An e‑commerce company has a dashboard that shows the 'inefficient order percentage' for a child DC. In a given week, the DC processed 10,000 orders. Out of these, 2,000 were fulfilled from the mother DC because the child DC was out of stock. What is the inefficient order percentage?",
+                "options": [
+                    "10%",
+                    "20%",
+                    "25%",
+                    "80%"
+                ],
+                "correct": 1,
+                "explanation": "Inefficient orders are those fulfilled from backup (mother DC). Percentage = (2,000 / 10,000) × 100% = 20%.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Total orders = 10,000.<br>2. Inefficient orders (backup fulfilment) = 2,000.<br>3. Percentage = (2,000 / 10,000) × 100% = 20%.<br>4. Option B is correct.<br><br><strong>Why the correct answer is correct:</strong><br>The CEO wants to know this metric to gauge local stock‑out frequency.<br><br><strong>Why other options are incorrect:</strong><br>* Option A (10%): Would be 1,000 orders.<br>* Option C (25%): Would be 2,500 orders.<br>* Option D (80%): Would be 8,000 orders.<br><br><strong>How to approach this type of problem:</strong><br>Divide inefficient orders by total orders.<br><br><strong>Concept used:</strong> Fulfilment efficiency metric.<br><strong>Points to remember:</strong><br>* High inefficient order percentage indicates poor inventory placement.<br>* Goal is to minimise this.<br>* May be caused by demand variability or incorrect stocking.<br><strong>Key takeaway:</strong> Inefficient order percentage is a key health indicator."
+            },
+            {
+                "id": 119,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "A supplier offers a discount for bulk orders: MOQ is 500 units at ₹100 per unit, but if you order 1,000 units, the price drops to ₹90 per unit. The company's annual demand is 5,000 units, and holding cost is ₹10 per unit per year. Ordering cost is ₹500 per order. What is the total annual cost if the company orders 1,000 units each time (ignore safety stock)?",
+                "options": [
+                    "₹4,50,000 (product cost) + ₹2,500 (ordering) + ₹5,000 (holding) = ₹4,57,500",
+                    "₹5,00,000 + ₹2,500 + ₹5,000 = ₹5,07,500",
+                    "₹4,50,000 + ₹2,500 + ₹10,000 = ₹4,62,500",
+                    "₹5,00,000 + ₹5,000 + ₹2,500 = ₹5,07,500"
+                ],
+                "correct": 0,
+                "explanation": "Product cost: 5,000 units × ₹90 = ₹4,50,000. Number of orders = 5,000/1,000 = 5 orders. Ordering cost = 5 × ₹500 = ₹2,500. Average inventory = 1,000/2 = 500 units. Holding cost = 500 × ₹10 = ₹5,000. Total = ₹4,57,500.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Annual demand (D) = 5,000 units.<br>2. Order quantity (Q) = 1,000 units.<br>3. Unit price at Q=1000 = ₹90.<br>4. Product cost = D × unit price = 5,000 × 90 = ₹4,50,000.<br>5. Number of orders per year = D/Q = 5,000/1,000 = 5.<br>6. Ordering cost = 5 × ₹500 = ₹2,500.<br>7. Average inventory = Q/2 = 500 units.<br>8. Holding cost = 500 × ₹10 = ₹5,000.<br>9. Total cost = 4,50,000 + 2,500 + 5,000 = ₹4,57,500.<br>10. Option A is correct.<br><br><strong>Why the correct answer is correct:</strong><br>Total cost includes purchase, ordering, and holding costs.<br><br><strong>Why other options are incorrect:</strong><br>* Option B: Uses price ₹100 (no discount), ignoring the discount benefit.<br>* Option C: Uses correct product cost but holding cost computed as Q×holding = 1,000×10 = 10,000, which is double the correct average inventory.<br>* Option D: Uses price ₹100 and incorrect holding cost.<br><br><strong>How to approach this type of problem:</strong><br>TC = (D×P) + (D/Q)×S + (Q/2)×H.<br><br><strong>Concept used:</strong> Economic Order Quantity with discounts.<br><strong>Points to remember:</strong><br>* Larger orders reduce ordering cost but increase holding cost.<br>* Quantity discounts can make larger orders economical.<br>* Must compare total cost across order quantities.<br><strong>Key takeaway:</strong> Bulk discounts can justify higher inventory."
+            },
+            {
+                "id": 120,
+                "type": "mcq",
+                "variant": "standard",
+                "difficulty": "medium",
+                "points": 2,
+                "text": "An e‑commerce platform has 10 SKUs in the mobile category. The average selling price of these SKUs is ₹15,000, and the average daily sales volume is 50 units. What is the approximate daily revenue from the mobile category?",
+                "options": [
+                    "₹7.5 lakh",
+                    "₹15 lakh",
+                    "₹75 lakh",
+                    "₹1.5 crore"
+                ],
+                "correct": 0,
+                "explanation": "Daily revenue = average price × average daily sales = ₹15,000 × 50 = ₹7,50,000 = ₹7.5 lakh.",
+                "detailed": "<strong>Step-by-step solution:</strong><br>1. Average price = ₹15,000.<br>2. Average daily sales = 50 units.<br>3. Daily revenue = 15,000 × 50 = ₹7,50,000.<br>4. 7,50,000 = 7.5 lakh.<br>5. Option A is correct.<br><br><strong>Why the correct answer is correct:</strong><br>Revenue is price times quantity.<br><br><strong>Why other options are incorrect:</strong><br>* Option B (₹15 lakh): Would require 100 units/day.<br>* Option C (₹75 lakh): Would require 500 units/day.<br>* Option D (₹1.5 crore): Would require 1,000 units/day.<br><br><strong>How to approach this type of problem:</strong><br>Multiply average price by average volume.<br><br><strong>Concept used:</strong> Revenue calculation.<br><strong>Points to remember:</strong><br>* Revenue is a key metric for category performance.<br>* High‑priced items like mobiles can generate significant revenue even with modest volumes.<br><strong>Key takeaway:</strong> Even moderate sales of high‑value items drive revenue."
+            },
+
+        ];
+    </script>
+</body>
+
+</html>
