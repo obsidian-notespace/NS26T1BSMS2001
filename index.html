@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="assignment-container">
+        <header class="header">
+            <div class="brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v12h12V6H6Zm3 3h6v2H9V9Zm0 4h6v2H9v-2Z" />
+                    </svg>
+                </div>
+                <div class="brand-title">
+                    <p class="title">Assignment Dashboard</p>
+                    <p class="subtitle">Folder cards with all 12 weeks for quick access.</p>
+                </div>
+            </div>
+            <button id="refreshButton" class="button" type="button">Refresh data</button>
+        </header>
+
+        <div class="assessment-top-info">
+            This dashboard automatically scans and displays all <code>.html</code> assignment files found in the
+            <code>sol</code> and <code>src</code> directories as folder cards containing all 12 weeks.
+        </div>
+
+        <section class="summary-grid" id="overviewGrid"></section>
+
+        <section class="filter-panel">
+            <div class="field">
+                <label for="search">Search assignments</label>
+                <input id="search" type="text" placeholder="Search by filename, week, or source">
+            </div>
+            <div class="field">
+                <label for="typeFilter">Source</label>
+                <select id="typeFilter">
+                    <option value="all">All sources</option>
+                    <option value="src">src</option>
+                    <option value="sol">sol</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="weekFilter">Week</label>
+                <select id="weekFilter">
+                    <option value="all">All weeks</option>
+                </select>
+            </div>
+        </section>
+
+        <div class="weeks-grid" id="weeksContainer"></div>
+    </div>
+
+    <script src="./index.js"></script>
+    <script>
+        const staticHtmlFiles = Array.isArray(window.htmlFiles) ? window.htmlFiles : [];
+        const searchInput = document.getElementById('search');
+        const typeFilter = document.getElementById('typeFilter');
+        const weekFilter = document.getElementById('weekFilter');
+        const overviewGrid = document.getElementById('overviewGrid');
+        const weeksContainer = document.getElementById('weeksContainer');
+        const refreshButton = document.getElementById('refreshButton');
+
+        const weekLabels = Array.from({ length: 12 }, (_, index) => `Week ${String(index + 1).padStart(2, '0')}`);
+        const cacheKey = 'assignment-dashboard-html-files-v1';
+
+        let currentFiles = [];
+        let parsedFiles = [];
+        let weeksData = [];
+        let refreshInProgress = false;
+
+        const normalize = value => value?.toString().toLowerCase() || '';
+
+        const normalizePathEntry = entry => {
+            const rawPath = typeof entry === 'string' ? entry : entry?.path;
+            if (!rawPath) return null;
+            return { path: String(rawPath).replace(/\\/g, '/') };
+        };
+
+        const normalizeFileList = list => {
+            const seen = new Set();
+            return (Array.isArray(list) ? list : [])
+                .map(normalizePathEntry)
+                .filter(Boolean)
+                .filter(item => {
+                    const key = item.path.toLowerCase();
+                    if (seen.has(key)) return false;
+                    seen.add(key);
+                    return true;
+                })
+                .sort((a, b) => a.path.localeCompare(b.path, undefined, { numeric: true, sensitivity: 'base' }));
+        };
+
+        const loadCachedFiles = () => {
+            try {
+                const raw = localStorage.getItem(cacheKey);
+                if (!raw) return [];
+                const parsed = JSON.parse(raw);
+                return normalizeFileList(parsed?.files || []);
+            } catch {
+                return [];
+            }
+        };
+
+        const saveCachedFiles = files => {
+            try {
+                localStorage.setItem(cacheKey, JSON.stringify({ savedAt: Date.now(), files }));
+            } catch {
+                // ignore storage errors
+            }
+        };
+
+        const rebuildData = files => {
+            currentFiles = normalizeFileList(files);
+            parsedFiles = currentFiles.map(file => {
+                const path = file.path;
+                const fileName = path.split('/').pop() || '';
+                const source = path.startsWith('src/') ? 'src' : 'sol';
+                const folder = (path.split('/')[1] || 'root').toLowerCase();
+                const match = path.match(/WEEK\s*0*([0-9]+)/i);
+                const week = match ? `Week ${String(Number(match[1])).padStart(2, '0')}` : 'Unknown';
+                const title = fileName.replace(/\.html?$/i, '');
+                return { path, fileName, title, source, folder, week };
+            });
+
+            weeksData = weekLabels.map(label => ({ label, items: [] }));
+            parsedFiles.forEach(file => {
+                const week = weeksData.find(item => item.label === file.week);
+                if (week) week.items.push(file);
+            });
+        };
+
+        const populateWeekOptions = () => {
+            weekLabels.forEach(label => {
+                const option = document.createElement('option');
+                option.value = label;
+                option.textContent = label;
+                weekFilter.appendChild(option);
+            });
+        };
+
+        const renderSummary = () => {
+            const total = parsedFiles.length;
+            const srcCount = parsedFiles.filter(file => file.source === 'src').length;
+            const solCount = parsedFiles.filter(file => file.source === 'sol').length;
+            const activeWeeks = weeksData.filter(week => week.items.length > 0).length;
+
+            overviewGrid.innerHTML = `
+                <div class="summary-card">
+                    <span>Total assignments</span>
+                    <strong>${total}</strong>
+                </div>
+                <div class="summary-card">
+                    <span>Active weeks</span>
+                    <strong>${activeWeeks} / 12</strong>
+                </div>
+                <div class="summary-card">
+                    <span>src files</span>
+                    <strong>${srcCount}</strong>
+                </div>
+                <div class="summary-card">
+                    <span>sol files</span>
+                    <strong>${solCount}</strong>
+                </div>
+            `;
+        };
+
+        const getFilteredFiles = () => {
+            const search = normalize(searchInput.value.trim());
+            const source = typeFilter.value;
+            const week = weekFilter.value;
+
+            return parsedFiles.filter(file => {
+                if (source !== 'all' && file.source !== source) return false;
+                if (week !== 'all' && file.week !== week) return false;
+                if (!search) return true;
+                return [file.title, file.fileName, file.week, file.source, file.folder, file.path].some(value =>
+                    normalize(value).includes(search)
+                );
+            });
+        };
+
+        const getCardLabel = (source, folder) => {
+            if (source === 'sol') return folder;
+            return `src / ${folder}`;
+        };
+
+        const renderWeeks = () => {
+            const filteredFiles = getFilteredFiles();
+            weeksContainer.innerHTML = '';
+
+            const groupedBySourceFolder = filteredFiles.reduce((acc, file) => {
+                const key = `${file.source}:${file.folder}`;
+                if (!acc[key]) {
+                    acc[key] = { source: file.source, folder: file.folder, items: [] };
+                }
+                acc[key].items.push(file);
+                return acc;
+            }, {});
+
+            const cards = Object.values(groupedBySourceFolder);
+            cards.sort((a, b) => {
+                const solOrder = ['practice', 'sessions', 'solution'];
+                if (a.source === 'sol' && b.source === 'sol') {
+                    const ai = solOrder.indexOf(a.folder);
+                    const bi = solOrder.indexOf(b.folder);
+                    const aRank = ai === -1 ? 99 : ai;
+                    const bRank = bi === -1 ? 99 : bi;
+                    if (aRank !== bRank) return aRank - bRank;
+                    return a.folder.localeCompare(b.folder);
+                }
+                if (a.source !== b.source) {
+                    return a.source === 'sol' ? -1 : 1;
+                }
+                return a.folder.localeCompare(b.folder);
+            });
+
+            let itemsFound = 0;
+
+            cards.forEach(card => {
+                const cardNode = document.createElement('div');
+                cardNode.className = `week-card folder-card folder-${card.folder.replace(/[^a-z0-9_-]/gi, '').toLowerCase()}`;
+                cardNode.innerHTML = `
+                    <div class="week-header">
+                        <h2>${getCardLabel(card.source, card.folder)}</h2>
+                        <p class="week-count">${card.items.length} file${card.items.length === 1 ? '' : 's'}</p>
+                    </div>
+                `;
+
+                weekLabels.forEach(weekLabel => {
+                    const weekItems = card.items
+                        .filter(item => item.week === weekLabel)
+                        .sort((a, b) => a.title.localeCompare(b.title));
+
+                    const weekSection = document.createElement('div');
+                    weekSection.className = 'week-group';
+                    weekSection.innerHTML = `
+                        <div class="week-group-header">
+                            <h3>${weekLabel}</h3>
+                            <span>${weekItems.length} file${weekItems.length === 1 ? '' : 's'}</span>
+                        </div>
+                    `;
+
+                    if (weekItems.length === 0) {
+                        const empty = document.createElement('div');
+                        empty.className = 'empty-state week-empty';
+                        empty.textContent = 'No files';
+                        weekSection.appendChild(empty);
+                    } else {
+                        weekItems.forEach(item => {
+                            itemsFound += 1;
+                            const row = document.createElement('div');
+                            row.className = 'task-row';
+                            row.innerHTML = `
+                                <span class="file-icon">
+                                    ${item.source === 'src'
+                                    ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6V2Zm9 0v5h5"/></svg>'
+                                    : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h5l2 3h9a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>'}
+                                </span>
+                                <div>
+                                    <p class="task-title">${item.title}</p>
+                                    <p class="task-details">${item.path}</p>
+                                </div>
+                                <span class="task-badge">${item.source}</span>
+                                <a class="task-action" href="${encodeURI(item.path)}" target="_blank" rel="noopener noreferrer">
+                                    Open
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </a>
+                            `;
+                            weekSection.appendChild(row);
+                        });
+                    }
+
+                    cardNode.appendChild(weekSection);
+                });
+
+                weeksContainer.appendChild(cardNode);
+            });
+
+            if (itemsFound === 0) {
+                weeksContainer.innerHTML = '<div class="empty-state">No matching assignment files were found. Try a different search or filter.</div>';
+            }
+        };
+
+        const inferGitHubRepo = () => {
+            const host = (window.location.hostname || '').toLowerCase();
+            if (!host.endsWith('.github.io')) return null;
+            const owner = host.slice(0, -'.github.io'.length);
+            const pathSegments = window.location.pathname.split('/').filter(Boolean);
+            const repo = pathSegments.length > 0 ? pathSegments[0] : `${owner}.github.io`;
+            if (!owner || !repo) return null;
+            return { owner, repo };
+        };
+
+        const fetchJson = async url => {
+            const response = await fetch(url, {
+                headers: {
+                    Accept: 'application/vnd.github+json'
+                }
+            });
+            if (!response.ok) {
+                throw new Error(`Request failed (${response.status})`);
+            }
+            return response.json();
+        };
+
+        const fetchGitHubFiles = async () => {
+            const repoInfo = inferGitHubRepo();
+            if (!repoInfo) return [];
+
+            const repoMetaUrl = `https://api.github.com/repos/${repoInfo.owner}/${repoInfo.repo}`;
+            const repoMeta = await fetchJson(repoMetaUrl);
+            const branch = repoMeta?.default_branch || 'main';
+
+            const treeUrl = `https://api.github.com/repos/${repoInfo.owner}/${repoInfo.repo}/git/trees/${encodeURIComponent(branch)}?recursive=1`;
+            const treeData = await fetchJson(treeUrl);
+            const nodes = Array.isArray(treeData?.tree) ? treeData.tree : [];
+
+            const files = nodes
+                .filter(node => node && node.type === 'blob' && typeof node.path === 'string')
+                .filter(node => /^(sol|src)\//i.test(node.path))
+                .filter(node => /\.html?$/i.test(node.path))
+                .map(node => ({ path: node.path }));
+
+            return normalizeFileList(files);
+        };
+
+        const setRefreshButtonState = (busy, label) => {
+            refreshButton.disabled = busy;
+            refreshButton.textContent = label;
+        };
+
+        const refreshFromGitHub = async (manual = false) => {
+            if (refreshInProgress) return;
+            refreshInProgress = true;
+
+            if (manual) {
+                setRefreshButtonState(true, 'Refreshing...');
+            }
+
+            try {
+                const remoteFiles = await fetchGitHubFiles();
+                if (remoteFiles.length > 0) {
+                    const currentPaths = currentFiles.map(item => item.path);
+                    const remotePaths = remoteFiles.map(item => item.path);
+                    const changed = currentPaths.length !== remotePaths.length ||
+                        remotePaths.some((path, index) => path !== currentPaths[index]);
+
+                    if (changed) {
+                        rebuildData(remoteFiles);
+                        renderSummary();
+                        renderWeeks();
+                        saveCachedFiles(remoteFiles);
+                    }
+                }
+            } catch (error) {
+                console.warn('Unable to refresh assignment list from GitHub API.', error);
+            } finally {
+                setRefreshButtonState(false, 'Refresh data');
+                refreshInProgress = false;
+            }
+        };
+
+        searchInput.addEventListener('input', renderWeeks);
+        typeFilter.addEventListener('change', renderWeeks);
+        weekFilter.addEventListener('change', renderWeeks);
+        refreshButton.addEventListener('click', () => {
+            refreshFromGitHub(true);
+        });
+
+        populateWeekOptions();
+        const cachedFiles = loadCachedFiles();
+        rebuildData(cachedFiles.length > 0 ? cachedFiles : staticHtmlFiles);
+        renderSummary();
+        renderWeeks();
+        refreshFromGitHub(false);
+    </script>
+</body>
+
+</html>
